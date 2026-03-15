@@ -1,7 +1,10 @@
-FROM node:14
+FROM node:20-bookworm
 
 WORKDIR /lab2
 
+COPY package*.json ./
+RUN npm install
+
 COPY . .
 
-RUN npm install
+CMD ["npm", "test"]
